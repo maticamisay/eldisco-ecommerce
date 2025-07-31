@@ -1,17 +1,6 @@
-'use client'
-
-import { useState } from "react"
-import { ProductGrid } from "@/components/ProductGrid"
-import { SearchAndFilters } from "@/components/SearchAndFilters"
+import { CategoryGrid } from "@/components/CategoryGrid"
 
 export default function Home() {
-  const [filters, setFilters] = useState({
-    search: '',
-    category: '',
-    brand: '',
-    maxPrice: ''
-  })
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm">
@@ -22,8 +11,7 @@ export default function Home() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <SearchAndFilters onSearch={setFilters} />
-        <ProductGrid filters={filters} />
+        <CategoryGrid />
       </div>
     </div>
   )
