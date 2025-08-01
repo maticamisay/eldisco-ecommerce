@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20')
     const skip = (page - 1) * limit
 
-    const query: Record<string, unknown> = {}
+    const query: Record<string, unknown> = { activoEcommerce: true }
     
     if (search) {
       query.$or = [

@@ -34,6 +34,7 @@ export interface IProduct extends Document {
   imagenPrincipal?: string
   stock: number
   umbralStockBajo: number
+  activoEcommerce: boolean
   createdAt: Date
   updatedAt: Date
 }
@@ -165,6 +166,11 @@ const ProductSchema = new Schema<IProduct>(
       required: true,
       min: 0,
       default: 5,
+    },
+    activoEcommerce: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {
