@@ -17,7 +17,7 @@ const categories: Category[] = [
     id: '1',
     name: 'Vinilos Textiles',
     slug: 'vinilos-textiles',
-    image: '/images/categories/vinilos-textiles.jpg',
+    image: '/vinilo.jpeg',
     description: 'Vinilos de alta calidad para textiles y superficies',
     available: true
   },
@@ -107,7 +107,7 @@ function CategoryCard({ category, className }: CategoryCardProps) {
       className
     )}>
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-purple-700/80 opacity-90 group-hover:opacity-75 transition-opacity"
+        className="absolute inset-0 transition-opacity"
         style={{
           backgroundImage: `url(${category.image})`,
           backgroundSize: 'cover',
@@ -115,11 +115,13 @@ function CategoryCard({ category, className }: CategoryCardProps) {
         }}
       />
       
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:from-black/60 group-hover:via-black/30 group-hover:to-black/20 transition-all duration-300" />
+      
       <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-        <h3 className="text-xl lg:text-2xl font-bold mb-2 group-hover:text-yellow-300 transition-colors">
+        <h3 className="text-xl lg:text-2xl font-bold mb-2 group-hover:transition-colors drop-shadow-lg">
           {category.name}
         </h3>
-        <p className="text-sm lg:text-base opacity-90 mb-3">
+        <p className="text-sm lg:text-base opacity-90 mb-3 drop-shadow-md">
           {category.description}
         </p>
         
