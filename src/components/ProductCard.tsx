@@ -22,7 +22,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <SecureImage
             filename={primaryImage.filename}
             alt={primaryImage.alt || product.nombre}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         ) : (
           <div className="flex items-center justify-center h-full text-gray-400">
