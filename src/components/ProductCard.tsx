@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { IProduct } from '@/models/Product'
 import { SecureImage } from './SecureImage'
+import { formatCurrency } from '@/lib/utils'
 
 interface ProductCardProps {
   product: IProduct
@@ -10,7 +11,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const primaryImage = product.imagenes?.find(img => img.isPrimary) || product.imagenes?.[0]
-  const priceWithIva = product.precio * (1 + product.iva / 100)
+  const priceCurrency = formatCurrency(product.precio)
 
   return (
     <Link 
@@ -51,7 +52,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-lg font-bold text-gray-900">
-              ${priceWithIva.toFixed(2)}
+              {priceCurrency}
             </p>
             <p className="text-xs text-gray-500">
               IVA incluido

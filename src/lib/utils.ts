@@ -59,3 +59,11 @@ export function convertToPlainObject<T>(obj: T): unknown {
 
   return obj
 }
+
+export function formatCurrency(amount: number): string {
+  return amount.toLocaleString("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+  });
+}
