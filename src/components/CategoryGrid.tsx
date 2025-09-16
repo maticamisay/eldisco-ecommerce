@@ -28,38 +28,6 @@ const categories: Category[] = [
     image: '/gaming-components.png',
     description: 'Componentes y accesorios para tu computadora',
     available: true
-  },
-  {
-    id: '3',
-    name: 'Herramientas',
-    slug: 'herramientas',
-    image: '/images/categories/herramientas.jpg',
-    description: 'Herramientas profesionales para todo tipo de trabajos',
-    available: false
-  },
-  {
-    id: '4',
-    name: 'Pinturas',
-    slug: 'pinturas',
-    image: '/images/categories/pinturas.jpg',
-    description: 'Pinturas y acabados de primera calidad',
-    available: false
-  },
-  {
-    id: '5',
-    name: 'Materiales de Construcción',
-    slug: 'materiales-construccion',
-    image: '/images/categories/construccion.jpg',
-    description: 'Todo lo necesario para tus proyectos de construcción',
-    available: false
-  },
-  {
-    id: '6',
-    name: 'Jardín y Exterior',
-    slug: 'jardin-exterior',
-    image: '/images/categories/jardin.jpg',
-    description: 'Productos para el cuidado de jardines y espacios exteriores',
-    available: false
   }
 ]
 
