@@ -20,16 +20,18 @@ interface SidebarFiltersProps {
   onBrandChange: (brand: string) => void
   onMaxPriceChange: (price: string) => void
   onClearFilters: () => void
+  categoryFilter?: string[]
 }
 
-export function SidebarFilters({ 
-  selectedCategory, 
-  selectedBrand, 
-  maxPrice, 
-  onCategoryChange, 
-  onBrandChange, 
+export function SidebarFilters({
+  selectedCategory,
+  selectedBrand,
+  maxPrice,
+  onCategoryChange,
+  onBrandChange,
   onMaxPriceChange,
-  onClearFilters 
+  onClearFilters,
+  categoryFilter
 }: SidebarFiltersProps) {
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Brand[]>([])
@@ -44,7 +46,16 @@ export function SidebarFilters({
         
         if (categoriesRes.ok) {
           const categoriesData = await categoriesRes.json()
-          setCategories(categoriesData.categories || [])
+          let categoriesData_filter = categoriesData.categories || []
+
+          // Filter categories if categoryFilter is provided
+          if (categoryFilter && categoryFilter.length > 0) {
+            categoriesData_filter = categoriesData_filter.filter((cat: Category) =>
+              categoryFilter.includes(cat._id)
+            )
+          }
+
+          setCategories(categoriesData_filter)
         }
         
         if (brandsRes.ok) {
@@ -57,7 +68,7 @@ export function SidebarFilters({
     }
 
     fetchFiltersData()
-  }, [])
+  }, [categoryFilter])
 
   return (
     <div className="bg-white rounded-lg shadow-sm border p-6 h-fit lg:sticky lg:top-6">

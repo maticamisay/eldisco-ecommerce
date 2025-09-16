@@ -23,6 +23,14 @@ const categories: Category[] = [
   },
   {
     id: '2',
+    name: 'Componentes de PC',
+    slug: 'componentes-pc',
+    image: '/gaming-components.png',
+    description: 'Componentes y accesorios para tu computadora',
+    available: true
+  },
+  {
+    id: '3',
     name: 'Herramientas',
     slug: 'herramientas',
     image: '/images/categories/herramientas.jpg',
@@ -30,7 +38,7 @@ const categories: Category[] = [
     available: false
   },
   {
-    id: '3',
+    id: '4',
     name: 'Pinturas',
     slug: 'pinturas',
     image: '/images/categories/pinturas.jpg',
@@ -38,7 +46,7 @@ const categories: Category[] = [
     available: false
   },
   {
-    id: '4',
+    id: '5',
     name: 'Materiales de Construcción',
     slug: 'materiales-construccion',
     image: '/images/categories/construccion.jpg',
@@ -46,7 +54,7 @@ const categories: Category[] = [
     available: false
   },
   {
-    id: '5',
+    id: '6',
     name: 'Jardín y Exterior',
     slug: 'jardin-exterior',
     image: '/images/categories/jardin.jpg',
@@ -85,8 +93,10 @@ function getCategoryCardClass(index: number): string {
     case 2:
       return ""
     case 3:
-      return "md:col-span-2 lg:col-span-1"
+      return ""
     case 4:
+      return "md:col-span-2 lg:col-span-1"
+    case 5:
       return ""
     default:
       return ""

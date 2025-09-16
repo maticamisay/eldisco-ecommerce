@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category')
     const brand = searchParams.get('brand')
     const maxPrice = searchParams.get('maxPrice')
+    const categories = searchParams.getAll('categories')
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '20')
     const skip = (page - 1) * limit
@@ -28,6 +29,10 @@ export async function GET(request: NextRequest) {
     
     if (category) {
       query.categoriaId = category
+    }
+
+    if (categories && categories.length > 0) {
+      query.categoriaId = { $in: categories }
     }
     
     if (brand) {

@@ -10,6 +10,7 @@ interface ProductGridProps {
     category?: string
     brand?: string
     maxPrice?: string
+    categories?: string[]
   }
 }
 
@@ -28,6 +29,9 @@ export function ProductGrid({ filters }: ProductGridProps) {
         if (filters?.category) params.append('category', filters.category)
         if (filters?.brand) params.append('brand', filters.brand)
         if (filters?.maxPrice) params.append('maxPrice', filters.maxPrice)
+        if (filters?.categories) {
+          filters.categories.forEach(cat => params.append('categories', cat))
+        }
         
         const response = await fetch(`/api/products?${params.toString()}`)
         if (!response.ok) {
